@@ -18,7 +18,7 @@
 <body>
 
   <!-- Navbar at top of screen. Currently not persistent with scroll -->
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
 
@@ -35,19 +35,42 @@
     <!-- List of menu items that will appear at the navbar or in mobile dropdown menu-->
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">Link1</a></li>
-        <li class="active"><a href="">Link2</a></li>
-        <li><a href="/portfolio">Link3</a></li>
-        <li><a href="#">Link4</a></li>
+        <li class="active"><a href="#">Link1</a></li>
+        <li><a href="">Link2</a></li>
+        <li><a href="">Link3</a></li>
+        <li><a href="">Link4</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Video jumbotron. Consider lookinh at bootstrap carousel? -->
-<div class="jumbotron">
-  <div class="container-fluid text-center">
-    <h2>Video goes here</h2>
+<div class="row">
+  <div class="col-xs-12 col-md-12">
+    <!--Carousel Wrapper-->
+    <div id="video-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        <!-- First slide -->
+        <div class="carousel-item active">
+          <!--Mask color-->
+          <div class="view hm-indigo-light">
+            <!--Video source-->
+            <video class="video-fluid" autoplay loop>
+              <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" />
+            </video>
+            <div class="full-bg-img"></div>
+          </div>
+
+          <!--Caption-->
+          <div class="carousel-caption">
+            <div class="animated fadeInDown">
+              <h3 class="h3-responsive">Alberto and Zach for President</h3>
+              <p>Vote March 2018</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
