@@ -3,21 +3,21 @@
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$message = $_POST['message'];
-		$from = 'Demo Contact Form'; 
-		$to = 'example@domain.com'; 
+		$from = 'Demo Contact Form';
+		$to = 'example@domain.com';
 		$subject = 'Message from Contact Demo ';
-		
+
 		$body ="From: $name\n E-Mail: $email\n Message:\n $message";
 		// Check if name has been entered
 		if (!$_POST['name']) {
 			$errName = 'Please enter your name';
 		}
-		
+
 		// Check if email has been entered and is valid
 		if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 			$errEmail = 'Please enter a valid email address';
 		}
-		
+
 		//Check if message has been entered
 		if (!$_POST['message']) {
 			$errMessage = 'Please enter your message';
@@ -130,8 +130,7 @@ if (!$errName && !$errEmail && !$errMessage) {
       </div>
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-justified">
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere
-          </p>
+          <p>NC State University is home to driven, innovative, and outstanding students. This community needs effective leadership, and that is what Alberto and Zach stand for. Currently, there is too much stagnation at the highest levels of student leadership. NC State deserves better, and that is why Alberto and Zach are running. </p>
           <br>
         </div>
       </div>
