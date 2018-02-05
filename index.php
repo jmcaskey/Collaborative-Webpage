@@ -4,7 +4,7 @@
 		$email = $_POST['email'];
 		$message = $_POST['message'];
 		$from = 'Demo Contact Form';
-		$to = 'example@domain.com';
+		$to = 'jmcaskey@ncsu.edu';
 		$subject = 'Message from Contact Demo ';
 
 		$body ="From: $name\n E-Mail: $email\n Message:\n $message";
@@ -42,7 +42,51 @@ if (!$errName && !$errEmail && !$errMessage) {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(document).on("scroll", onScroll);
 
+      //smoothscroll
+      $('a[href^="#"]').on('click', function (e) {
+
+        e.preventDefault();
+
+        $(document).off("scroll");
+
+        $('a').each(function () {
+            $(this).parent().removeClass('active');
+        })
+
+        $(this).parent().addClass('active');
+
+        var target = this.hash,
+            menu = target;
+        $target = $(target);
+
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top-50
+        }, 1000, 'swing', function () {
+            $(document).on("scroll", onScroll);
+        });
+      });
+  });
+
+  function onScroll(event){
+    var scrollPos = $(document).scrollTop();
+    $('#myNavbar a').each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+
+        if (refElement.position().top-50 <= scrollPos && refElement.position().top + refElement.height()-50 > scrollPos) {
+            $('#myNavbar ul li a').removeClass("active");
+            currLink.parent().addClass("active");
+        }
+        else{
+            currLink.parent().removeClass("active");
+        }
+    });
+}
+  </script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */
 
@@ -58,7 +102,7 @@ if (!$errName && !$errEmail && !$errMessage) {
   </style>
 </head>
 
-<body style="margin-left:-20px; margin-right:-20px;">
+<body style="margin-left:-20px; margin-right:-40px;">
   <!-- Navbar at top of screen. Currently persistent with scroll -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -71,19 +115,25 @@ if (!$errName && !$errEmail && !$errMessage) {
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="#">Logo photo</a>
+        <a class="navbar-brand" href="#">Vote Now!</a>
       </div>
 
       <!-- List of menu items that will appear at the navbar or in mobile dropdown menu-->
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link1</a>
+          <li><a href="#mission">MISSION</a>
           </li>
-          <li><a href="">Link2</a>
+          <li><a href="#platform">PLATFORM</a>
           </li>
-          <li><a href="">Link3</a>
+          <li><a href="#profiles">WHO WE ARE</a>
           </li>
-          <li><a href="">Link4</a>
+          <li><a href="#steps">STEPS</a>
+          </li>
+          <li><a href="#plan">PLANS</a>
+          </li>
+          <li><a href="#full-platform">FULL PLATFORM</a>
+          </li>
+          <li><a href="#email">CONTACT</a>
           </li>
         </ul>
       </div>
@@ -100,7 +150,7 @@ if (!$errName && !$errEmail && !$errMessage) {
             <!-- First slide -->
             <div class="carousel-item active">
               <!--Mask color-->
-              <div class="view hm-indigo-light">
+              <div class="view hm-indigo-light embed-responsive embed-responsive-16by9">
                 <!--Video source-->
                 <video class="video-fluid" autoplay loop>
                   <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" />
@@ -111,8 +161,8 @@ if (!$errName && !$errEmail && !$errMessage) {
               <!--Caption-->
               <div class="carousel-caption">
                 <div class="animated fadeInDown">
-                  <h3 class="h3-responsive">Alberto and Zach for President</h3>
-                  <p>Vote March 2018</p>
+                  <h1 class="h1-responsive">Alberto and Zach for President</h1>
+                  <h3>Vote March 2018</h3>
                 </div>
               </div>
             </div>
