@@ -31,8 +31,7 @@
 
         $('html, body').stop().animate({
             'scrollTop': $target.offset().top-50
-        }, 500, 'swing', function () {
-            window.location.hash = target;
+        }, 1000, 'swing', function () {
             $(document).on("scroll", onScroll);
         });
       });
@@ -44,7 +43,7 @@
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
 
-        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+        if (refElement.position().top-50 <= scrollPos && refElement.position().top + refElement.height()-50 > scrollPos) {
             $('#myNavbar ul li a').removeClass("active");
             currLink.parent().addClass("active");
         }
