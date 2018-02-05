@@ -1,3 +1,37 @@
+<?php
+	if (isset($_POST["submit"])) {
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$message = $_POST['message'];
+		$from = 'Demo Contact Form'; 
+		$to = 'example@domain.com'; 
+		$subject = 'Message from Contact Demo ';
+		
+		$body ="From: $name\n E-Mail: $email\n Message:\n $message";
+		// Check if name has been entered
+		if (!$_POST['name']) {
+			$errName = 'Please enter your name';
+		}
+		
+		// Check if email has been entered and is valid
+		if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+			$errEmail = 'Please enter a valid email address';
+		}
+		
+		//Check if message has been entered
+		if (!$_POST['message']) {
+			$errMessage = 'Please enter your message';
+		}
+// If there are no errors, send the email
+if (!$errName && !$errEmail && !$errMessage) {
+	if (mail ($to, $subject, $body, $from)) {
+		$result='<div class="alert alert-success">Thank You! I will be in touch</div>';
+	} else {
+		$result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
+	}
+}
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,7 +130,8 @@
       </div>
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-justified">
-          <p>NC State University is home to driven, innovative, and outstanding students. This community needs effective leadership, and that is what Alberto and Zach stand for. Currently, there is too much stagnation at the highest levels of student leadership. NC State deserves better, and that is why Alberto and Zach are running. </p>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere
+          </p>
           <br>
         </div>
       </div>
@@ -228,21 +263,25 @@
             <div class="form-group">
               <label for="name" class="col-sm-2 control-label">Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="">
-                <p class='text-danger'></p>              </div>
+                <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
+                <?php echo "<p class='text-danger'>$errName</p>";?>
+              </div>
             </div>
             <div class="form-group">
               <label for="email" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
-                <p class='text-danger'></p>              </div>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
+                <?php echo "<p class='text-danger'>$errEmail</p>";?>
+              </div>
             </div>
             <div class="form-group">
               <label for="message" class="col-sm-2 control-label">Message</label>
               <div class="col-sm-10">
                 <textarea class="form-control" rows="4" name="message">
-                                  </textarea>
-                <p class='text-danger'></p>              </div>
+                  <?php echo htmlspecialchars($_POST[ 'message']);?>
+                </textarea>
+                <?php echo "<p class='text-danger'>$errMessage</p>";?>
+              </div>
             </div>
             <div class="form-group">
               <div class="col-sm-10 col-sm-offset-2">
@@ -251,7 +290,8 @@
             </div>
             <div class="form-group">
               <div class="col-sm-10 col-sm-offset-2">
-                              </div>
+                <?php echo $result; ?>
+              </div>
             </div>
           </form>
         </div>
@@ -259,4 +299,4 @@
     </section>
 
   </div>
-<script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script></body>
+</body>
