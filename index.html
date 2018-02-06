@@ -8,23 +8,80 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans|Patua+One|Montserrat|Vollkorn|Ubuntu">
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */
 
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
+
     }
     hr {
       height: 24px;
       border-top: 2px solid #999;
       width: 50%;
     }
+
+    h1 {
+      font-family: 'Patua One'; 
+      font-size: 55px;
+    }
+
+    p {
+      font-family: Montserrat; font-size: 20px;
+    }
+
+    /*css for the head text in the carousel*/
+    #carouseltexthead{
+      font-family: Ubuntu; font-size: 40px;
+      text-align: center;
+    }
+ /*css for the small text in the carousel*/
+    #carouseltextvote{
+      font-family: Ubuntu; font-size: 30px;
+    }
+ /*css the mission statement row*/
+    #missionstatement{
+      font-family: Montserrat; font-size: 20px;
+    }
+ /*css for the platform row*/
+    #platform{
+      color: #ffffff;
+    }
+ /*css for the campaign profiles row*/
+    #profiles{
+      color: #000000;
+    }
+ /*css the steps row*/
+    #steps{
+      color: #000000;
+    }
+ /*css for the timeline row*/
+    #plan{
+      color: #ffffff;
+    }
+ /*css for integrated pdf platform*/
+    #full-platform{
+      color: #000000;
+    }
+
+/*css styling for the google drive button*/
+    #googledrivebutton:hover{
+    }
+
+/*Css for video that plays behind the contact page*/
+    #contactvideo{
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
   </style>
 </head>
 
-<body style="margin-left:-20px; margin-right:-20px;">
+<body style="font-family: Ubuntu; font-size: 20px; margin-left:-20px; margin-right:-20px;">
   <!-- Navbar at top of screen. Currently persistent with scroll -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -75,10 +132,12 @@
               </div>
 
               <!--Caption-->
+
               <div class="carousel-caption">
                 <div class="animated fadeInDown">
-                  <h3 class="h3-responsive">Alberto and Zach for President</h3>
-                  <p>Vote March 2018</p>
+                  <body {}
+                  <h3 id="carouseltexthead" class="h3-responsive">Alberto and Zach for President</h3>
+                  <p id="carouseltextvote">Vote March 2018</p>
                 </div>
               </div>
             </div>
@@ -88,21 +147,27 @@
     </div>
 
     <!-- Rows start here. Each panel shoud be a row-->
-    <section id="mission" style="background:#E9967A;">
+    <section id="mission" style="background:#ffffff;">
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-center">
+          <br>
+          <br>
+          <br>
           <h1>Our Mission</h1>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-justified">
-          <p>NC State University is home to driven, innovative, and outstanding students. This community needs effective leadership, and that is what Alberto and Zach stand for. Currently, there is too much stagnation at the highest levels of student leadership. NC State deserves better, and that is why Alberto and Zach are running. </p>
+          <p id="missionstatement">NC State University is home to driven, innovative, and outstanding students. This community needs effective leadership, and that is what Alberto and Zach stand for. Currently, there is too much stagnation at the highest levels of student leadership. NC State deserves better, and that is why Alberto and Zach are running. </p>
+          <br>
+          <br>
+          <br>
           <br>
         </div>
       </div>
     </section>
 
-    <section id="platform" style="background:#cccccc;">
+    <section id="platform" style="background:#ff0606;">
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-center">
           <h1>Platform Highlights</h1>
@@ -127,7 +192,7 @@
       </div>
     </section>
 
-    <section id="profiles" style="background:#E9967A;">
+    <section id="profiles" style="background:#9f9c9c;">
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-center">
           <h1>Candidate Profiles</h1>
@@ -149,16 +214,17 @@
           <p>This text is sample text used to add a visual reference of what a potential platform description would look like on the webpage. Very plain at the moment but we will see what happens after</p>
           <br>
           <a href="#"><img src="images/fbIcon.png" height="50">
+          <br>
           </a>
           <br>
         </div>
       </div>
     </section>
 
-    <section id="steps" style="background:#cccccc;">
+    <section id="steps" style="background:#ffffff;">
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-center">
-          <h1>steps</h1>
+          <h1>Steps</h1>
         </div>
       </div>
       <div class="row">
@@ -182,7 +248,7 @@
       <br>
     </section>
 
-    <section id="plan" style="background:#E9967A;">
+    <section id="plan" style="background:#ff0606;">
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-center">
           <h1>Timeline</h1>
@@ -212,17 +278,28 @@
       <br>
     </section>
 
-    <section id="full-platform" style="background:#cccccc;">
+    <section id="full-platform" style="background:#9f9c9c;">
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-center">
           <h1>Full Platform</h1>
+          <p>This is sample text to demonstrate where the PDF will go eventually. We will also have a button that leads you
+          to the google drive. </p>
+          <br>
+          <button id="googledrivebutton" type="button" class="btn btn-success">Google Drive</button>
+          <br>
+          <br>
+          <br>
+
         </div>
       </div>
 
     </section>
-    <section id="email" style="background:#E9967A;">
+    <section id="email" style="background:#ffffff;">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
+        <video autoplay muted loop id="contactvideo">
+          <source src="#" type="video/mp4">
+        </video>
           <h1 class="page-header text-center">Contact</h1>
           <form class="form-horizontal" role="form" method="post" action="index.php">
             <div class="form-group">
