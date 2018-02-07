@@ -3,21 +3,21 @@
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$message = $_POST['message'];
-		$from = 'Demo Contact Form'; 
-		$to = 'example@domain.com'; 
+		$from = 'Demo Contact Form';
+		$to = 'jmcaskey@ncsu.edu';
 		$subject = 'Message from Contact Demo ';
-		
+
 		$body ="From: $name\n E-Mail: $email\n Message:\n $message";
 		// Check if name has been entered
 		if (!$_POST['name']) {
 			$errName = 'Please enter your name';
 		}
-		
+
 		// Check if email has been entered and is valid
 		if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 			$errEmail = 'Please enter a valid email address';
 		}
-		
+
 		//Check if message has been entered
 		if (!$_POST['message']) {
 			$errMessage = 'Please enter your message';
@@ -42,7 +42,51 @@ if (!$errName && !$errEmail && !$errMessage) {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(document).on("scroll", onScroll);
 
+      //smoothscroll
+      $('a[href^="#"]').on('click', function (e) {
+
+        e.preventDefault();
+
+        $(document).off("scroll");
+
+        $('a').each(function () {
+            $(this).parent().removeClass('active');
+        })
+
+        $(this).parent().addClass('active');
+
+        var target = this.hash,
+            menu = target;
+        $target = $(target);
+
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top-50
+        }, 1000, 'swing', function () {
+            $(document).on("scroll", onScroll);
+        });
+      });
+  });
+
+  function onScroll(event){
+    var scrollPos = $(document).scrollTop();
+    $('#myNavbar a').each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+
+        if (refElement.position().top-50 <= scrollPos && refElement.position().top + refElement.height()-50 > scrollPos) {
+            $('#myNavbar ul li a').removeClass("active");
+            currLink.parent().addClass("active");
+        }
+        else{
+            currLink.parent().removeClass("active");
+        }
+    });
+}
+  </script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */
 
@@ -58,7 +102,7 @@ if (!$errName && !$errEmail && !$errMessage) {
   </style>
 </head>
 
-<body style="margin-left:-20px; margin-right:-20px;">
+<body style="margin-left:-20px; margin-right:-40px;">
   <!-- Navbar at top of screen. Currently persistent with scroll -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -71,19 +115,25 @@ if (!$errName && !$errEmail && !$errMessage) {
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="#">Logo photo</a>
+        <a class="navbar-brand" href="#">Vote Now!</a>
       </div>
 
       <!-- List of menu items that will appear at the navbar or in mobile dropdown menu-->
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link1</a>
+          <li><a href="#mission">MISSION</a>
           </li>
-          <li><a href="">Link2</a>
+          <li><a href="#platform">PLATFORM</a>
           </li>
-          <li><a href="">Link3</a>
+          <li><a href="#profiles">WHO WE ARE</a>
           </li>
-          <li><a href="">Link4</a>
+          <li><a href="#steps">STEPS</a>
+          </li>
+          <li><a href="#plan">PLANS</a>
+          </li>
+          <li><a href="#full-platform">FULL PLATFORM</a>
+          </li>
+          <li><a href="#email">CONTACT</a>
           </li>
         </ul>
       </div>
@@ -100,7 +150,7 @@ if (!$errName && !$errEmail && !$errMessage) {
             <!-- First slide -->
             <div class="carousel-item active">
               <!--Mask color-->
-              <div class="view hm-indigo-light">
+              <div class="view hm-indigo-light embed-responsive embed-responsive-16by9">
                 <!--Video source-->
                 <video class="video-fluid" autoplay loop>
                   <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" />
@@ -111,8 +161,8 @@ if (!$errName && !$errEmail && !$errMessage) {
               <!--Caption-->
               <div class="carousel-caption">
                 <div class="animated fadeInDown">
-                  <h3 class="h3-responsive">Alberto and Zach for President</h3>
-                  <p>Vote March 2018</p>
+                  <h1 class="h1-responsive">Alberto and Zach for President</h1>
+                  <h3>Vote March 2018</h3>
                 </div>
               </div>
             </div>
@@ -130,8 +180,7 @@ if (!$errName && !$errEmail && !$errMessage) {
       </div>
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-justified">
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere
-          </p>
+          <p>NC State University is home to driven, innovative, and outstanding students. This community needs effective leadership, and that is what Alberto and Zach stand for. Currently, there is too much stagnation at the highest levels of student leadership. NC State deserves better, and that is why Alberto and Zach are running. </p>
           <br>
         </div>
       </div>
