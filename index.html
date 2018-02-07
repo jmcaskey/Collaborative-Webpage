@@ -30,7 +30,7 @@
         $target = $(target);
 
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top-50
+            'scrollTop': $target.offset().top-60
         }, 1000, 'swing', function () {
             $(document).on("scroll", onScroll);
         });
@@ -43,7 +43,7 @@
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
 
-        if (refElement.position().top-50 <= scrollPos && refElement.position().top + refElement.height()-50 > scrollPos) {
+        if (refElement.position().top-50 < scrollPos && refElement.position().top + refElement.height()-50 > scrollPos) {
             $('#myNavbar ul li a').removeClass("active");
             currLink.parent().addClass("active");
         }
@@ -73,12 +73,12 @@
     }
 
     h1 {
-      font-family: 'Patua One'; 
+      font-family: 'Patua One';
       font-size: 55px;
     }
 
     h2{
-      font-family: 'Patua One'; 
+      font-family: 'Patua One';
       font-size: 25px;
     }
 
