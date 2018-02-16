@@ -11,24 +11,17 @@
   <script>
     $(document).ready(function () {
       $(document).on("scroll", onScroll);
-
       //smoothscroll
       $('a[href^="#"]').on('click', function (e) {
-
         e.preventDefault();
-
         $(document).off("scroll");
-
         $('a').each(function () {
             $(this).parent().removeClass('active');
         })
-
         $(this).parent().addClass('active');
-
         var target = this.hash,
             menu = target;
         $target = $(target);
-
         $('html, body').stop().animate({
             'scrollTop': $target.offset().top-60
         }, 1000, 'swing', function () {
@@ -36,13 +29,11 @@
         });
       });
   });
-
   function onScroll(event){
     var scrollPos = $(document).scrollTop();
     $('#myNavbar a').each(function () {
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
-
         if (refElement.position().top-50 < scrollPos && refElement.position().top + refElement.height()-50 > scrollPos) {
             $('#myNavbar ul li a').removeClass("active");
             currLink.parent().addClass("active");
@@ -56,7 +47,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans|Patua+One|Montserrat|Vollkorn|Ubuntu">
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */
-
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
@@ -64,28 +54,23 @@
       font-size: 15px;
       color: : #9f9c9c;
       color: #ffffff;
-
     }
     hr {
       height: 24px;
       border-top: 2px solid #999;
       width: 50%;
     }
-
     h1 {
       font-family: 'Patua One';
       font-size: 55px;
     }
-
     h2{
       font-family: 'Patua One';
       font-size: 25px;
     }
-
     p {
       font-family: Montserrat; font-size: 20px;
     }
-
     /*css for the head text in the carousel*/
     #carouseltexthead{
       font-family: Montserrat; font-size: 60px;
@@ -96,7 +81,6 @@
       font-family: Montserrat; font-size: 45px;
       color: #ff0606;
     }
-
  /*css for the platform row*/
     #platform{
       color: #ffffff;
@@ -117,15 +101,12 @@
     #full-platform{
       color: #000000;
     }
-
 /*css styling for the google drive button*/
     #googledrivebutton:hover {
     }
-
     #email{
       font-size: 20px;
     }
-
 /*Css for video that plays behind the contact page*/
     #contactvideo{
       position: fixed;
@@ -238,22 +219,47 @@
       </div>
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-justified">
-          <h2 class="text-center">Sample platform item title</h2>
-          <p>This text is sample text used to add a visual reference of what a potential platform description would look like on the webpage. Very plain at the moment but we will see what happens after</p>
+          <h2 class="text-center">Inclusive, Visible Student Leadership</h2>
+          <p>Our commitment is to bridge the gap between the Student Government and the Student Body to unite the university as a whole . We will put forth efforts that will make it easier for students to know what SG is working on and how they can get involved. We will increase in person presence around campus throughout the weeks.  We want to build a community at NC State by going to campus events and club meetings. </p>
         </div>
         <hr>
         <br>
       </div>
 
-      <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-justified">
-          <h2 class="text-center">Sample platform item title</h2>
-          <p>This text is sample text used to add a visual reference of what a potential platform description would look like on the webpage. Very plain at the moment but we will see what happens after</p>
+          <h2 class="text-center">Expanded Mental Health Resources</h2>
+          <p>Ensure Proper Funding for Counseling Center throughout the school year. We will advocate for proper funding to help avoid the understaffing at the Health center, to decrease wait times and counselor availability.  On top, we plan to Increase Presence of Resident Mentors at any point throughout the year. We will ensure University Housing is properly equipped to be able to help students who are struggling with mental health, and be able to find the right resources to guide them into steps for a healthy recovery. We also want to start "NC State Loves" Week, where we will highlight different students, organizations, faculty, and the positive things they do for the campus community. </p>
         </div>
         <hr>
         <br>
       </div>
-    </section>
+
+</section>
+<section id="platform" style="background:#ff0606">
+        <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-justified">
+          <h2 class="text-center">Further Sustainability Initiatives</h2>
+          <p>We will advocate to follow Paris Climate Accord requirements as a University, and advocate for the city of Raleigh to do the same. Start a Plant a tree initiative for our students and alumni. Students, organizations, and alumni can donate money to plant trees on campus, named in their honor. Proceeds will go towards projects with a sustainability focus. Increase Composting stations around every possible section of campus. Move towards more LED and motion sensored lights around campus. Have every light and pole around campus replaced with LED lights to conserve energy save money. Move towards motion sensored lights in parking lots and buildings to be able to conserve electricity. Also, Move towards more water bottle filling stations around campus. Increase access for students to fill up their water bottles. This will encourage the use of reusable water bottles. </p>
+        </div>
+        <hr>
+        <br>
+      </div>
+
+
+
+        <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-justified">
+          <h2 class="text-center">Affordable Class Resources</h2>
+          <p>Access to PDF versions of textbooks and free or low cost homework platforms is our goal. Increasing the amount of course reserve textbooks available in the library for students to check out is a conversation we will start with NCSU Libraries. Motivating the use of more free, open educational resources in classrooms by professors and academic departments across the university is something we will implement through conversations with the Faculty Senate. Eliminating paid for homework services like Webassign across all classes. Students should not have to pay upwards of $150 for access to homework.</p>
+        </div>
+        <hr>
+        <br>
+
+        <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-justified">
+          <h2 class="text-center">Increased Faculty Diversity</h2>
+          <p>Zach is doing tremendous work on Student Senate to improve faculty and administration diversity efforts. We will continue Zach’s fight, and ensure that NC State is a nationwide leader on increasing diversity amongst faculty, professors, and administration.</p>
+        </div>
+        <hr>
+        <br>
+</section>
 
     <section id="profiles" style="background:#D3D3D3;">
       <div class="row">
